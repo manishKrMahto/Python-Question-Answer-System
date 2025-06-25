@@ -1,0 +1,6 @@
+TASK 1 - Merge all dataset and create Bigger one
+TASK 2 - preprocess the dataset and understand the dataset
+TASK 3 - use Transformer Model and train
+TASK 4 - evaluation and saving model
+TASK 5 - Present using Streamlit app
+TASK 6 - adding Code explaination feature using CodeT5 model 
