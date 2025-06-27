@@ -494,42 +494,15 @@ class Transformer(nn.Module):
     return outputs
 
 
-model = Transformer(
-    embed_dim=512,
-    src_vocab_size=37000,
-    target_vocab_size=37000,
-    seq_length=50,        # or more if needed
-    num_layers=6,
-    expansion_factor=4,   # because 512 * 4 = 2048
-    n_heads=8
-)
+if __name__ == "__main__":
+    model = Transformer(
+        embed_dim=512,
+        src_vocab_size=37000,
+        target_vocab_size=37000,
+        seq_length=50,        # or more if needed
+        num_layers=6,
+        expansion_factor=4,   # because 512 * 4 = 2048
+        n_heads=8
+    )
 
-print(model)
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    print(model)
