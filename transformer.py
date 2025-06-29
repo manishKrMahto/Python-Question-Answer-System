@@ -413,7 +413,7 @@ class TransformerDecoder(nn.Module):
     return out
 
 class Transformer(nn.Module):
-  def __init__(self, embed_dim, src_vocab_size, target_vocab_size, seq_length, num_layers=6, expansion_factor=4, n_heads=8):
+  def __init__(self, embed_dim, src_vocab_size, target_vocab_size, en_seq_length, de_seq_length, num_layers=6, expansion_factor=4, n_heads=8):
     super().__init__()
 
     """
@@ -432,7 +432,7 @@ class Transformer(nn.Module):
 
     # Initialize the Transformer encoder
     self.encoder = TransformerEncoder(
-      seq_len=seq_length,
+      seq_len=en_seq_length,
       vocab_size=src_vocab_size,
       embed_dim=embed_dim,
       num_layers=num_layers,
@@ -444,7 +444,7 @@ class Transformer(nn.Module):
     self.decoder = TransformerDecoder(
       target_vocab_size=target_vocab_size,
       embed_dim=embed_dim,
-      seq_len=seq_length,
+      seq_len=de_seq_length,
       num_layers=num_layers,
       expansion_factor=expansion_factor,
       n_heads=n_heads
@@ -499,7 +499,8 @@ if __name__ == "__main__":
         embed_dim=512,
         src_vocab_size=37000,
         target_vocab_size=37000,
-        seq_length=50,        # or more if needed
+        en_seq_length=50,        # or more if needed
+        de_seq_length=50,        # or more if needed
         num_layers=6,
         expansion_factor=4,   # because 512 * 4 = 2048
         n_heads=8
